@@ -1,0 +1,19 @@
+{
+  "deploy": {
+    "startCommand": "npm start",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  },
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "npm install"
+  },
+  "healthcheck": {
+    "path": "/api/health",
+    "timeout": 30
+  },
+  "variables": {
+    "NODE_ENV": "production",
+    "PORT": "5000"
+  }
+}
