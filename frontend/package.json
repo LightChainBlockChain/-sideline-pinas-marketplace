@@ -1,7 +1,7 @@
 {
-  "name": "sideline-pilipinas-frontend",
+  "name": "sideline_pinas-frontend",
   "version": "1.0.0",
-  "description": "Frontend application for Sideline Pilipinas digital marketplace",
+  "description": "Frontend application for Sideline_Pinas digital marketplace",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

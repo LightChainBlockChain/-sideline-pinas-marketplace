@@ -1,7 +1,7 @@
 {
-  "name": "sideline-pilipinas-backend",
+  "name": "sideline_pinas-backend",
   "version": "1.0.0",
-  "description": "Backend API for Sideline Pilipinas digital marketplace",
+  "description": "Backend API for Sideline_Pinas digital marketplace",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -45,6 +45,6 @@
     "philippines",
     "ecommerce"
   ],
-  "author": "Sideline Pilipinas",
+  "author": "Sideline_Pinas",
   "license": "PROPRIETARY"
 }

@@ -4,11 +4,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="min-h-screen bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+      <header className="min-h-screen bg-gradient-to-br from-filipino-blue via-primary-600 to-secondary-500 flex items-center justify-center">
         <div className="text-center text-white px-4">
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-bold font-display mb-4">
-              Sideline Pilipinas
+              Sideline_Pinas
             </h1>
             <p className="text-xl md:text-2xl font-light opacity-90 mb-2">
               The Premier Digital Marketplace for Filipino Sideliners
@@ -19,10 +19,10 @@ function App() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 shadow-lg">
+            <button className="bg-secondary-500 text-primary-800 px-8 py-3 rounded-lg font-semibold hover:bg-secondary-400 transition-colors duration-200 shadow-lg">
               Get Started
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors duration-200">
+            <button className="border-2 border-secondary-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-500 hover:text-primary-800 transition-colors duration-200">
               Learn More
             </button>
           </div>
@@ -52,11 +52,11 @@ function App() {
               Supporting all major Philippine payment methods
             </p>
             <div className="flex justify-center items-center gap-6 flex-wrap">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm">GCash</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm">PayMaya</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm">UnionBank</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm">BPI</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm">Cards</span>
+              <span className="bg-secondary-400/30 border border-secondary-400 px-4 py-2 rounded-full text-sm font-medium">GCash</span>
+              <span className="bg-secondary-400/30 border border-secondary-400 px-4 py-2 rounded-full text-sm font-medium">PayMaya</span>
+              <span className="bg-secondary-400/30 border border-secondary-400 px-4 py-2 rounded-full text-sm font-medium">UnionBank</span>
+              <span className="bg-secondary-400/30 border border-secondary-400 px-4 py-2 rounded-full text-sm font-medium">BPI</span>
+              <span className="bg-secondary-400/30 border border-secondary-400 px-4 py-2 rounded-full text-sm font-medium">Cards</span>
             </div>
           </div>
         </div>
@@ -110,11 +110,11 @@ function App() {
         </div>
       </main>
       
-      <footer className="bg-dark-800 text-white py-8">
+      <footer className="bg-primary-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Sideline Pilipinas</h3>
+              <h3 className="text-lg font-semibold mb-4 text-secondary-400">Sideline_Pinas</h3>
               <p className="text-gray-400 text-sm">
                 The premier digital marketplace for Filipino sideliners to buy, sell, and trade digital products.
               </p>
@@ -152,7 +152,7 @@ function App() {
           </div>
           
           <div className="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
-            <p>&copy; 2025 Sideline Pilipinas. All rights reserved.</p>
+            <p>&copy; 2025 Sideline_Pinas. All rights reserved.</p>
           </div>
         </div>
       </footer>

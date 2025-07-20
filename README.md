@@ -1,10 +1,10 @@
-# Sideline Pilipinas - Digital Marketplace
+# Sideline Pinas - Digital Marketplace
 
-A comprehensive digital marketplace platform for the Philippines where "sideliners" can buy, sell, and trade digital products including NFTs, digital art, software, and more.
+A comprehensive digital marketplace platform for the Philippines where "Sideliners" can buy, sell, and trade digital products including NFTs, digital art, software, and more.
 
 ## 🚀 Features
 
-- **User Management**: Registration, authentication, and profile management for sideliners
+- **User Management**: Registration, authentication, and profile management for Sideliners
 - **Digital Product Marketplace**: Upload, list, and sell digital products
 - **NFT Trading**: Buy, sell, and bid on NFTs
 - **Auction System**: Bidding functionality with real-time updates
@@ -95,4 +95,4 @@ This platform is specifically designed for the Philippine market with:
 
 ## 📄 License
 
-This project is proprietary software for Sideline Pilipinas.
+This project is proprietary software for Sideline Pinas.

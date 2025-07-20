@@ -1,7 +1,7 @@
-# 🚀 Sideline Pilipinas - Deployment Guide
+# 🚀 Sideline Pinas - Deployment Guide
 
 ## 🌟 Overview
-This guide will help you deploy the Sideline Pilipinas digital marketplace to production environments.
+This guide will help you deploy the Sideline Pinas digital marketplace to production environments.
 
 ## 📋 Prerequisites
 
@@ -38,7 +38,7 @@ digital-marketplace/
    - Whitelist your IP addresses (0.0.0.0/0 for now)
 
 2. **Get Connection String**
-   - Format: `mongodb+srv://username:password@cluster.mongodb.net/sideline_pilipinas`
+   - Format: `mongodb+srv://username:password@cluster.mongodb.net/sideline_pinas`
 
 ### Phase 2: Backend Deployment (Railway)
 1. **Create Railway Account**
@@ -103,7 +103,7 @@ digital-marketplace/
 ```env
 REACT_APP_API_URL=https://your-backend-url.railway.app/api
 REACT_APP_SOCKET_URL=https://your-backend-url.railway.app
-REACT_APP_APP_NAME=Sideline Pilipinas
+REACT_APP_APP_NAME=Sideline Pinas
 REACT_APP_VERSION=1.0.0
 REACT_APP_ENVIRONMENT=production
 ```
@@ -112,7 +112,7 @@ REACT_APP_ENVIRONMENT=production
 ```env
 NODE_ENV=production
 PORT=5000
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/sideline_pilipinas
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/sideline_pinas
 JWT_SECRET=your-super-secret-jwt-key
 CLIENT_URL=https://your-frontend-url.vercel.app
 ```
@@ -121,8 +121,8 @@ CLIENT_URL=https://your-frontend-url.vercel.app
 
 ### 1. Clone and Setup
 ```bash
-git clone https://github.com/your-username/sideline-pilipinas.git
-cd sideline-pilipinas
+git clone https://github.com/your-username/sideline-pinas.git
+cd sideline-pinas
 ```
 
 ### 2. Install Dependencies
@@ -227,10 +227,10 @@ vercel --prod
 ## 🆘 Support
 
 For deployment issues, contact:
-- **Email**: support@sidelinepilipinas.com
+- **Email**: support@sidelinepinas.com
 - **Documentation**: Check the `/docs` folder
 - **Issues**: Create GitHub issues
 
 ---
 
-**🌟 Happy Deploying! Welcome to the Sideline Pilipinas family! 🇵🇭**
+**🌟 Happy Deploying! Welcome to the Sideline Pinas family! 🇵🇭**

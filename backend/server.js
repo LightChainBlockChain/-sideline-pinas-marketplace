@@ -57,7 +57,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static('uploads'));
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/sideline-pilipinas', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/sideline-pinas', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -73,13 +73,65 @@ app.use('/api/bids', bidRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/admin', adminRoutes);
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'Sideline_Pinas - Decentralized Marketplace for the Philippines 🇵🇭',
+    description: 'Decentralized Marketplace for the Philippines',
+    tagline: 'Powered by VeriToken',
+    features: {
+      '🔐 Decentralized Identity': 'Secure identity verification using blockchain technology and VeriToken integration',
+      '💰 Secure Transactions': 'Safe and transparent transactions with blockchain-powered security',
+      '🌐 Philippines-Focused': 'Tailored services and solutions specifically for Filipino entrepreneurs and businesses',
+      '⚡ VeriToken Integration': 'Native integration with VeriToken for seamless identity and payment processing'
+    },
+    endpoints: {
+      'GET /': 'Welcome message',
+      'GET /health': 'Health check',
+      'GET /api/marketplace': 'Marketplace features',
+      'GET /api/identity': 'Identity verification',
+      'GET /api/status': 'Service status'
+    },
+    version: '2.0.0',
+    stack: 'Built with Express.js',
+    deployment: 'Deployed on Multiple Platforms',
+    mission: '🏆 Supporting Filipino Innovation Through Blockchain Technology'
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'OK', 
-    message: 'Sideline Pilipinas API is running',
+    message: 'Sideline_Pinas API is running',
     timestamp: new Date().toISOString(),
-    version: '1.0.0'
+    version: '2.0.0'
+  });
+});
+
+// API endpoints for marketplace info
+app.get('/api/marketplace', (req, res) => {
+  res.json({
+    features: ['NFT Trading', 'Digital Art Marketplace', 'Real-time Auctions', 'Filipino Payment Methods'],
+    paymentMethods: ['GCash', 'PayMaya', 'UnionBank', 'BPI', 'Credit/Debit Cards'],
+    status: 'active'
+  });
+});
+
+app.get('/api/identity', (req, res) => {
+  res.json({
+    verification: 'VeriToken Integration',
+    blockchain: 'Ethereum',
+    security: 'Multi-layer authentication'
+  });
+});
+
+app.get('/api/status', (req, res) => {
+  res.json({
+    service: 'operational',
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development',
+    timestamp: new Date().toISOString()
   });
 });
 
@@ -123,7 +175,7 @@ app.use('*', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
-  console.log(`🚀 Sideline Pilipinas server running on port ${PORT}`);
+  console.log(`🚀 Sideline_Pinas server running on port ${PORT}`);
   console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 
