@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: sideline-pinas-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        value: https://comforting-dieffenbachia-c8db19.netlify.app
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: APP_NAME
+        value: Sideline Pinas
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: SUPPORT_EMAIL
+        value: support@sidelinepinas.com
+      - key: PLATFORM_FEE_PERCENTAGE
+        value: "10"
+      - key: PAYMENT_PROCESSING_FEE
+        value: "2.5"
+      - key: MONGODB_URI
+        sync: false
+    healthCheckPath: /api/health
