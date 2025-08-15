@@ -3,8 +3,14 @@ name: CI
 on:
   push:
     branches: [ main, "chore/*", "feat/*", "fix/*" ]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -12,8 +18,13 @@ concurrency:
 
 jobs:
   backend:
-    name: Backend (Node 18)
-    runs-on: ubuntu-latest
+    name: Backend (Node ${{ matrix.node }} • ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [18, 20]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: backend
@@ -24,7 +35,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix.node }}
           cache: npm
           cache-dependency-path: backend/package-lock.json
 
@@ -37,8 +48,13 @@ jobs:
         run: npm test -- --ci --reporters=default --reporters=jest-junit
 
   frontend:
-    name: Frontend (Node 18)
-    runs-on: ubuntu-latest
+    name: Frontend (Node ${{ matrix.node }} • ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [18, 20]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: frontend
@@ -49,7 +65,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix.node }}
           cache: npm
           cache-dependency-path: frontend/package-lock.json
 

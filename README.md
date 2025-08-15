@@ -1,5 +1,7 @@
 # Sideline Pinas - Digital Marketplace
 
+[![CI](https://github.com/LightChainBlockChain/-sideline-pinas-marketplace/actions/workflows/ci.yml/badge.svg)](https://github.com/LightChainBlockChain/-sideline-pinas-marketplace/actions/workflows/ci.yml)
+
 A comprehensive digital marketplace for the Philippines where Sideliners can buy, sell, and trade digital products, with privacy-preserving identity (DID/SSI) powered by VeriToken.
 
 ## 🚀 Features
