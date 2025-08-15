@@ -114,7 +114,35 @@ const userSchema = new mongoose.Schema({
     escrowBalance: {
       type: Number,
       default: 0
+    },
+    // Optional on-platform token balance (e.g., Veri tokens)
+    tokenBalance: {
+      type: Number,
+      default: 0
     }
+  },
+  // Early user rewards and discounts
+  rewards: {
+    signupTokensAwarded: {
+      type: Number,
+      default: 0
+    },
+    awardedAt: Date,
+    reason: String
+  },
+  discount: {
+    eligible: {
+      type: Boolean,
+      default: false
+    },
+    rate: {
+      type: Number,
+      default: 0, // e.g., 0.2 = 20% discount on platform commission
+      min: 0,
+      max: 1
+    },
+    awardedAt: Date,
+    expiresAt: Date
   },
   paymentMethods: [{
     type: {

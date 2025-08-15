@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const User = require('../models/User');
 
-// Payment processing with 10% platform commission
+// Payment processing with platform commission (discounts may apply)
 router.post('/process-payment', async (req, res) => {
   try {
     const { 
@@ -14,12 +15,25 @@ router.post('/process-payment', async (req, res) => {
       transactionId 
     } = req.body;
 
-    // Calculate platform commission (10%)
+    // Calculate platform commission
     const platformFeePercentage = parseFloat(process.env.PLATFORM_FEE_PERCENTAGE) || 10;
     const paymentProcessingFee = parseFloat(process.env.PAYMENT_PROCESSING_FEE) || 2.5;
-    
-    const platformCommission = (amount * platformFeePercentage) / 100;
+
+    let platformCommission = (amount * platformFeePercentage) / 100;
     const processingFee = (amount * paymentProcessingFee) / 100;
+
+    // Apply seller discount on platform commission if eligible
+    let discountApplied = 0;
+    let sellerDiscountRate = 0;
+    if (sellerId) {
+      const seller = await User.findById(sellerId).select('discount');
+      if (seller && seller.discount && seller.discount.eligible && seller.discount.rate > 0) {
+        sellerDiscountRate = seller.discount.rate;
+        discountApplied = platformCommission * sellerDiscountRate;
+        platformCommission = platformCommission - discountApplied;
+      }
+    }
+
     const sellerAmount = amount - platformCommission - processingFee;
 
     // Create payment record
@@ -67,10 +81,14 @@ router.post('/process-payment', async (req, res) => {
       data: {
         transactionId,
         originalAmount: amount,
-        platformCommission: platformCommission,
-        processingFee: processingFee,
-        sellerAmount: sellerAmount,
-        platformFeePercentage: platformFeePercentage
+        platformCommission: Math.round(platformCommission * 100) / 100,
+        processingFee: Math.round(processingFee * 100) / 100,
+        sellerAmount: Math.round(sellerAmount * 100) / 100,
+        platformFeePercentage: platformFeePercentage,
+        discount: {
+          applied: Math.round(discountApplied * 100) / 100,
+          rate: sellerDiscountRate
+        }
       }
     });
 
