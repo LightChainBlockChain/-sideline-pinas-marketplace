@@ -27,6 +27,9 @@ const nftRoutes = require('./routes/nfts');
 const bidRoutes = require('./routes/bids');
 const paymentRoutes = require('./routes/payments');
 const adminRoutes = require('./routes/admin');
+const walletRoutes = require('./routes/wallet');
+const miningRoutes = require('./routes/mining');
+const faucetRoutes = require('./routes/faucet');
 
 // Security middleware
 app.use(helmet());
@@ -72,6 +75,9 @@ app.use('/api/nfts', nftRoutes);
 app.use('/api/bids', bidRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/wallet', walletRoutes);
+app.use('/api/mining', miningRoutes);
+app.use('/api/faucet', faucetRoutes);
 
 // Root endpoint
 app.get('/', (req, res) => {

@@ -107,6 +107,14 @@ const userSchema = new mongoose.Schema({
   },
   wallet: {
     address: String,
+    verified: {
+      type: Boolean,
+      default: false
+    },
+    nonce: {
+      type: String,
+      default: null
+    },
     balance: {
       type: Number,
       default: 0
@@ -143,6 +151,11 @@ const userSchema = new mongoose.Schema({
     },
     awardedAt: Date,
     expiresAt: Date
+  },
+  // Simple mining state for daily rewards
+  mining: {
+    lastClaimAt: Date,
+    totalMined: { type: Number, default: 0 }
   },
   paymentMethods: [{
     type: {
