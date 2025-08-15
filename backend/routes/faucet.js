@@ -3,11 +3,16 @@ const axios = require('axios');
 const router = express.Router();
 const User = require('../models/User');
 
+const auth = require('../middleware/auth');
+
+// Protected routes: require JWT
+router.use(auth);
+
 // Request faucet tokens for a verified wallet address (if FAUCET_WEBHOOK_URL configured)
-router.post('/request', async (req, res) => {
+router.post('/request', async (req, res) =[0m> {
   try {
-    const { userId } = req.body;
-    if (!userId) return res.status(400).json({ success: false, message: 'userId is required' });
+    const userId = req.user?.userId;
+    if (!userId) return res.status(401).json({ success: false, message: 'Unauthorized' });
 
     const user = await User.findById(userId);
     if (!user || !user.wallet?.verified || !user.wallet?.address) {

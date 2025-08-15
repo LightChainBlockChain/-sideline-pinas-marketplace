@@ -6,11 +6,16 @@ const User = require('../models/User');
 
 const web3 = new Web3(process.env.WEB3_PROVIDER_URL || 'http://localhost:8545');
 
+const auth = require('../middleware/auth');
+
+// Protected routes: require JWT
+router.use(auth);
+
 // Request a nonce to sign with MetaMask for wallet linking
-router.post('/request-nonce', async (req, res) => {
+router.post('/request-nonce', async (req, res) =[0m> {
   try {
-    const { userId } = req.body;
-    if (!userId) return res.status(400).json({ success: false, message: 'userId is required' });
+    const userId = req.user?.userId;
+    if (!userId) return res.status(401).json({ success: false, message: 'Unauthorized' });
 
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ success: false, message: 'User not found' });
@@ -26,11 +31,12 @@ router.post('/request-nonce', async (req, res) => {
 });
 
 // Verify signature from MetaMask and link address
-router.post('/verify-signature', async (req, res) => {
+router.post('/verify-signature', async (req, res) =[0m> {
   try {
-    const { userId, address, signature } = req.body;
+    const { address, signature } = req.body;
+    const userId = req.user?.userId;
     if (!userId || !address || !signature) {
-      return res.status(400).json({ success: false, message: 'userId, address, and signature are required' });
+      return res.status(400).json({ success: false, message: 'address and signature are required' });
     }
 
     const user = await User.findById(userId);
