@@ -12,16 +12,16 @@ Before applying, make sure you have:
 
 ### 💰 **Pricing at a Glance**
 
-| **Advertisement Type** | **Duration** | **Price** | **Total (with VAT)** |
-|------------------------|--------------|-----------|----------------------|
-| **Featured Product**   | 7 days       | ₱299      | ₱334.88             |
-| **Featured Product**   | 14 days      | ₱499      | ₱558.88             |
-| **Featured Product**   | 30 days      | ₱899      | ₱1,006.88           |
-| **Banner Ad**          | 1 month      | ₱1,299    | ₱1,454.88           |
-| **Banner Ad**          | 3 months     | ₱3,597    | ₱4,028.64 (Save 7%) |
-| **Banner Ad**          | 1 year       | ₱13,589   | ₱15,219.68 (Save 13%) |
-| **Sponsored Content**  | Per article  | ₱799      | ₱894.88             |
-| **Profile Boost**      | 1 month      | ₱199      | ₱222.88             |
+| Advertisement Type | Duration    | Price  | Total (with VAT)        |
+|--------------------|-------------|--------|--------------------------|
+| Featured Product   | 7 days      | ₱299   | ₱334.88                  |
+| Featured Product   | 14 days     | ₱499   | ₱558.88                  |
+| Featured Product   | 30 days     | ₱899   | ₱1,006.88                |
+| Banner Ad          | 1 month     | ₱1,299 | ₱1,454.88                |
+| Banner Ad          | 3 months    | ₱3,597 | ₱4,028.64 (Save 7%)      |
+| Banner Ad          | 1 year      | ₱13,589| ₱15,219.68 (Save 13%)    |
+| Sponsored Content  | Per article | ₱799   | ₱894.88                  |
+| Profile Boost      | 1 month     | ₱199   | ₱222.88                  |
 
 ### 🚀 **Application Process**
 
