@@ -1,7 +1,39 @@
 import React from 'react';
 import './App.css';
+import { useAuthToken, useWalletLinking, useMining } from './hooks/walletAndMining';
+
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 function App() {
+  const { token, setToken } = useAuthToken();
+  const { linkWithMetaMask } = useWalletLinking(API_BASE, token);
+  const { claimDaily } = useMining(API_BASE, token);
+  const [address, setAddress] = React.useState<string>('');
+  const [miningInfo, setMiningInfo] = React.useState<any>(null);
+
+  const handleFakeLogin = async () => {
+    const fake = window.prompt('Enter JWT token (temporary demo)');
+    if (fake) setToken(fake);
+  };
+  const onLinkWallet = async () => {
+    try {
+      const addr = await linkWithMetaMask();
+      setAddress(addr);
+      alert('Wallet linked: ' + addr);
+    } catch (e: any) {
+      alert('Wallet link failed: ' + (e?.message || 'unknown error'));
+    }
+  };
+  const onClaim = async () => {
+    try {
+      const data = await claimDaily();
+      setMiningInfo(data);
+      alert('Claimed ' + data.reward + ' tokens. Balance: ' + data.tokenBalance);
+    } catch (e: any) {
+      alert('Claim failed: ' + (e.response?.data?.message || e.message));
+    }
+  };
+
   return (
     <div className="App">
       <header className="min-h-screen bg-gradient-to-br from-filipino-blue via-primary-600 to-secondary-500 flex items-center justify-center">
@@ -109,6 +141,27 @@ function App() {
           </div>
         </div>
       </main>
+
+      {/* Developer panel (temporary) */}
+      <section className="p-6 bg-white border-t">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-xl font-semibold mb-2">Developer Panel (temporary)</h2>
+          <div className="flex gap-3 flex-wrap items-center mb-2">
+            <button className="px-4 py-2 bg-gray-900 text-white rounded" onClick={handleFakeLogin}>Set JWT Token (temporary)</button>
+            <span>Token set: {token ? 'yes' : 'no'}</span>
+          </div>
+          <div className="flex gap-3 flex-wrap items-center mb-2">
+            <button className="px-4 py-2 bg-primary-600 text-white rounded disabled:opacity-50" onClick={onLinkWallet} disabled={!token}>Link MetaMask Wallet</button>
+            <span>Linked address: {address || '—'}</span>
+          </div>
+          <div className="flex gap-3 flex-wrap items-center">
+            <button className="px-4 py-2 bg-secondary-500 text-primary-900 rounded disabled:opacity-50" onClick={onClaim} disabled={!token}>Claim Daily Mining Reward</button>
+            {miningInfo && (
+              <pre className="bg-gray-100 p-2 rounded text-xs overflow-x-auto">{JSON.stringify(miningInfo, null, 2)}</pre>
+            )}
+          </div>
+        </div>
+      </section>
       
       <footer className="bg-primary-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
