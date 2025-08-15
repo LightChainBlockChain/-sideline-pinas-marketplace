@@ -61,6 +61,32 @@ digital-marketplace/
 4. Run database migrations
 5. Start the development servers
 
+## 🧑‍💻 Local Development
+
+Environment variables
+- Backend: see backend/.env.example (copy to backend/.env and adjust)
+- Frontend: see frontend/.env.example (for CRA, create frontend/.env.local as needed)
+
+Run the apps
+- Terminal A:
+  - cd backend
+  - npm ci
+  - npm run dev (API at http://localhost:5000)
+- Terminal B:
+  - cd frontend
+  - npm ci
+  - npm start (CRA at http://localhost:3000, proxies to backend)
+
+Testing & linting
+- Backend tests (Jest):
+  - cd backend; npm test
+  - Single test: npx jest __tests__/health.test.js
+- Frontend tests (react-scripts):
+  - cd frontend; npm test
+  - Single test file: npm test -- src\\path\\to\\MyComponent.test.tsx
+- Frontend lint/format:
+  - npm run lint; npm run lint:fix; npm run format
+
 ## 🔐 Security & Privacy
 
 - JWT-based authentication
