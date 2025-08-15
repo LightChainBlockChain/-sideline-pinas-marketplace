@@ -1,42 +1,45 @@
 # Sideline Pinas - Digital Marketplace
 
-A comprehensive digital marketplace platform for the Philippines where "Sideliners" can buy, sell, and trade digital products including NFTs, digital art, software, and more.
+A comprehensive digital marketplace for the Philippines where Sideliners can buy, sell, and trade digital products, with privacy-preserving identity (DID/SSI) powered by VeriToken.
 
 ## 🚀 Features
 
-- **User Management**: Registration, authentication, and profile management for Sideliners
-- **Digital Product Marketplace**: Upload, list, and sell digital products
-- **NFT Trading**: Buy, sell, and bid on NFTs
-- **Auction System**: Bidding functionality with real-time updates
-- **Payment Integration**: Support for all major Philippine e-payment methods
-- **Transaction Fees**: 10% platform fee on successful transactions
-- **Filipino-First Design**: Localized for Philippine market and culture
+- Privacy-Preserving Identity (DID/SSI): Verifiable credentials for merchants and customers with selective disclosure
+- Product Authenticity & Provenance: Tamper-evident product records and supply-chain attestations
+- Trusted Transactions: Cryptographically signed transaction attestations and dispute evidence
+- Decentralized Reputation: Credential-backed ratings that resist manipulation
+- Digital Assets Marketplace: Buy/sell digital goods and NFTs with provenance guarantees
+- Auctions & Real-time Commerce: Real-time bidding and live updates
+- Local Payments First: GCash, PayMaya, banks, and cards with PHP currency support
+- Filipino-First UX: Localization for language, compliance, and time zones
+- Sustainable Architecture: Versioned schemas/APIs, testable modules, and observability-by-default
+- Transparent Fees: Clear platform fees with on-chain or auditable accounting
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React.js with TypeScript
-- Tailwind CSS for styling
-- Web3.js for blockchain interactions
-- Socket.io for real-time bidding
+- React.js (TypeScript)
+- Tailwind CSS
+- Web3.js (blockchain interactions)
+- Socket.io (real-time)
 
 ### Backend
-- Node.js with Express
-- MongoDB for database
-- JWT for authentication
-- Multer for file uploads
-- Socket.io for real-time features
+- Node.js (Express)
+- MongoDB
+- JWT authentication
+- Multer (file uploads)
+- Socket.io (real-time)
 
 ### Blockchain
-- Ethereum/Polygon for NFT smart contracts
-- IPFS for decentralized file storage
+- EVM chain (e.g., Polygon) for marketplace and asset smart contracts
+- DID Methods & Verifiable Credentials for identity and trust
+- IPFS/Filecoin for decentralized content storage
+- Anchoring model: off-chain credentials with on-chain anchors for auditability
+- Optional account abstraction for better UX and gas sponsorship
+- Interoperability-first design (standards-aligned schemas, versioned contracts)
 
 ### Payment Integration
-- GCash API
-- PayMaya API
-- UnionBank API
-- BPI API
-- Stripe for international cards
+- GCash, PayMaya, UnionBank, BPI, Stripe
 
 ## 📁 Project Structure
 
@@ -58,40 +61,26 @@ digital-marketplace/
 4. Run database migrations
 5. Start the development servers
 
-## 🇵🇭 Philippine Market Focus
-
-This platform is specifically designed for the Philippine market with:
-- Peso (PHP) as primary currency
-- Integration with local payment methods
-- Filipino language support
-- Local time zone handling
-- Philippine-specific legal compliance
-
-## 📱 Supported E-Payment Methods
-
-- **GCash** - Most popular mobile wallet
-- **PayMaya** - Digital wallet and card
-- **UnionBank** - Online banking
-- **BPI** - Bank of the Philippine Islands
-- **Metrobank** - Online banking
-- **Paymongo** - Payment gateway
-- **Dragonpay** - Payment switch
-- **Credit/Debit Cards** - Visa, Mastercard
-
-## 💰 Revenue Model
-
-- 10% transaction fee on all successful sales
-- Premium listing features (optional)
-- Advertising space for featured products
-
-## 🔐 Security Features
+## 🔐 Security & Privacy
 
 - JWT-based authentication
 - File upload validation
-- Rate limiting
-- CSRF protection
+- Rate limiting and CSRF protection
 - Input sanitization
 - Secure payment processing
+- DID/SSI security: selective disclosure, local key storage, ZK-proof readiness
+
+## 🇵🇭 Philippine Market Focus
+
+- Peso (PHP) as primary currency
+- Local payment method integration
+- Filipino language support
+- Local time zone handling
+- PH-specific compliance
+
+## 📚 Documentation
+
+- VeriToken DID/SSI integration: docs/VERITOKEN_README.md
 
 ## 📄 License
 
